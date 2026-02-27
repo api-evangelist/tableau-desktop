@@ -1,0 +1,131 @@
+name: Tableau Desktop API
+description: APIs and integration points for Tableau Desktop, a data visualization and business intelligence platform
+image: https://www.tableau.com/sites/default/files/tableau_rgb.png
+tags:
+- Data Visualization
+- Business Intelligence
+- Analytics
+- Desktop Application
+created: '2024'
+modified: '2024'
+url: https://www.tableau.com/products/desktop
+specificationVersion: '0.18'
+apis:
+- name: Tableau Desktop Extensions API
+  description: Build dashboard extensions that enable users to interact with data from other applications directly in Tableau
+  image: https://www.tableau.com/sites/default/files/tableau_rgb.png
+  humanURL: https://tableau.github.io/extensions-api/
+  baseURL: https://tableau.github.io/extensions-api/
+  tags:
+  - Extensions
+  - Dashboard
+  - JavaScript
+  properties:
+  - type: Documentation
+    url: https://tableau.github.io/extensions-api/docs/trex_overview.html
+  - type: API Reference
+    url: https://tableau.github.io/extensions-api/docs/index.html
+  - type: GitHub Repository
+    url: https://github.com/tableau/extensions-api
+  - type: Samples
+    url: https://github.com/tableau/extension-samples
+  - type: Tutorial
+    url: https://tableau.github.io/extensions-api/docs/trex_getstarted.html
+- name: Tableau Hyper API
+  description: Create, read, update, and delete data in .hyper files for use in Tableau Desktop
+  image: https://www.tableau.com/sites/default/files/tableau_rgb.png
+  humanURL: https://help.tableau.com/current/api/hyper_api/en-us/index.html
+  baseURL: https://help.tableau.com/current/api/hyper_api/
+  tags:
+  - Data Extract
+  - Hyper
+  - Database
+  properties:
+  - type: Documentation
+    url: https://help.tableau.com/current/api/hyper_api/en-us/index.html
+  - type: Python API Reference
+    url: https://help.tableau.com/current/api/hyper_api/en-us/reference/py/index.html
+  - type: C++ API Reference
+    url: https://help.tableau.com/current/api/hyper_api/en-us/reference/cpp/index.html
+  - type: Java API Reference
+    url: https://help.tableau.com/current/api/hyper_api/en-us/reference/java/index.html
+  - type: .NET API Reference
+    url: https://help.tableau.com/current/api/hyper_api/en-us/reference/dotnet/index.html
+  - type: Download
+    url: https://www.tableau.com/support/releases/hyper-api
+- name: Tableau Document API
+  description: Python library for programmatically updating Tableau workbook and data source files
+  image: https://www.tableau.com/sites/default/files/tableau_rgb.png
+  humanURL: https://tableau.github.io/document-api-python/
+  baseURL: https://github.com/tableau/document-api-python
+  tags:
+  - Python
+  - Workbooks
+  - Data Sources
+  properties:
+  - type: Documentation
+    url: https://tableau.github.io/document-api-python/
+  - type: GitHub Repository
+    url: https://github.com/tableau/document-api-python
+  - type: PyPI Package
+    url: https://pypi.org/project/tableaudocumentapi/
+  - type: Tutorial
+    url: https://tableau.github.io/document-api-python/docs/
+- name: Tableau Web Data Connector
+  description: Create custom data connections to web data sources that Tableau doesn't natively support
+  image: https://www.tableau.com/sites/default/files/tableau_rgb.png
+  humanURL: https://tableau.github.io/webdataconnector/
+  baseURL: https://tableau.github.io/webdataconnector/
+  tags:
+  - Web Data
+  - Connector
+  - JavaScript
+  - Data Source
+  properties:
+  - type: Documentation
+    url: https://tableau.github.io/webdataconnector/docs/
+  - type: API Reference
+    url: https://tableau.github.io/webdataconnector/docs/api_ref.html
+  - type: GitHub Repository
+    url: https://github.com/tableau/webdataconnector
+  - type: Samples
+    url: https://github.com/tableau/webdataconnector/tree/master/Examples
+  - type: Simulator
+    url: https://tableau.github.io/webdataconnector/simulator/
+- name: Tableau REST API
+  description: Manage and interact with Tableau Server and Tableau Cloud resources programmatically
+  image: https://www.tableau.com/sites/default/files/tableau_rgb.png
+  humanURL: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api.htm
+  baseURL: https://help.tableau.com/current/api/rest_api/
+  tags:
+  - REST
+  - Server
+  - Cloud
+  - Workbooks
+  - Publishing
+  properties:
+  - type: Documentation
+    url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api.htm
+  - type: API Reference
+    url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref.htm
+  - type: Authentication
+    url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_concepts_auth.htm
+  - type: Postman Collection
+    url: https://www.postman.com/tableau
+common:
+- type: Developer Portal
+  url: https://www.tableau.com/developer
+- type: Community Forums
+  url: https://community.tableau.com/s/developers
+- type: Blog
+  url: https://www.tableau.com/about/blog/developers
+- type: Support
+  url: https://www.tableau.com/support
+- type: Terms of Service
+  url: https://www.tableau.com/tos
+- type: Privacy Policy
+  url: https://www.tableau.com/privacy
+maintainers:
+- name: Tableau Software
+  email: developers@tableau.com
+  url: https://www.tableau.com
