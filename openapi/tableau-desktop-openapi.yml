@@ -1,0 +1,496 @@
+openapi: 3.1.0
+info:
+  title: Tableau REST API
+  version: '3.22'
+  description: >-
+    The Tableau REST API enables programmatic management of Tableau Server
+    and Tableau Cloud resources, including authentication, sites, users,
+    projects, workbooks, and data sources. This minimal specification
+    captures a representative subset of endpoints documented in the
+    Tableau REST API Reference.
+  contact:
+    name: Tableau Developer Program
+    url: https://www.tableau.com/developer
+servers:
+  - url: https://{tableau-server}/api/3.22
+    description: Tableau Server / Tableau Cloud REST API
+    variables:
+      tableau-server:
+        default: 10ay.online.tableau.com
+        description: Hostname of the Tableau Server or Tableau Cloud pod.
+security:
+  - tableauAuth: []
+tags:
+  - name: Authentication
+    description: Sign in and sign out operations.
+  - name: Sites
+    description: Manage Tableau sites.
+  - name: Users
+    description: Manage users on a site.
+  - name: Projects
+    description: Manage projects on a site.
+  - name: Workbooks
+    description: Manage and download workbooks.
+  - name: Data Sources
+    description: Manage and refresh published data sources.
+  - name: Server
+    description: Server information.
+paths:
+  /auth/signin:
+    post:
+      operationId: signIn
+      summary: Sign In
+      description: Signs the specified user in to Tableau Server or Tableau Cloud and returns an authentication token.
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Request'
+      responses:
+        '200':
+          description: Successful sign in.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+  /auth/signout:
+    post:
+      operationId: signOut
+      summary: Sign Out
+      description: Signs the user out of Tableau Server or Tableau Cloud.
+      tags:
+        - Authentication
+      responses:
+        '204':
+          description: Successfully signed out.
+  /sites:
+    get:
+      operationId: querySites
+      summary: Query Sites
+      description: Returns a list of sites on the server.
+      tags:
+        - Sites
+      responses:
+        '200':
+          description: A list of sites.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+    post:
+      operationId: createSite
+      summary: Create Site
+      description: Creates a site.
+      tags:
+        - Sites
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Request'
+      responses:
+        '201':
+          description: Site created.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+  /sites/{siteId}:
+    parameters:
+      - $ref: '#/components/parameters/SiteId'
+    get:
+      operationId: querySite
+      summary: Query Site
+      description: Returns information about the specified site.
+      tags:
+        - Sites
+      responses:
+        '200':
+          description: Site information.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+    put:
+      operationId: updateSite
+      summary: Update Site
+      description: Updates the specified site.
+      tags:
+        - Sites
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Request'
+      responses:
+        '200':
+          description: Site updated.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+    delete:
+      operationId: deleteSite
+      summary: Delete Site
+      description: Deletes the specified site.
+      tags:
+        - Sites
+      responses:
+        '204':
+          description: Site deleted.
+  /sites/{siteId}/users:
+    parameters:
+      - $ref: '#/components/parameters/SiteId'
+    get:
+      operationId: getUsersOnSite
+      summary: Get Users on Site
+      description: Returns the users associated with the specified site.
+      tags:
+        - Users
+      responses:
+        '200':
+          description: A list of users.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+    post:
+      operationId: addUserToSite
+      summary: Add User to Site
+      description: Adds a user to the specified site.
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Request'
+      responses:
+        '201':
+          description: User added.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+  /sites/{siteId}/users/{userId}:
+    parameters:
+      - $ref: '#/components/parameters/SiteId'
+      - $ref: '#/components/parameters/UserId'
+    put:
+      operationId: updateUser
+      summary: Update User
+      description: Updates the specified user.
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Request'
+      responses:
+        '200':
+          description: User updated.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+    delete:
+      operationId: removeUserFromSite
+      summary: Remove User from Site
+      description: Removes the specified user from the site.
+      tags:
+        - Users
+      responses:
+        '204':
+          description: User removed.
+  /sites/{siteId}/projects:
+    parameters:
+      - $ref: '#/components/parameters/SiteId'
+    get:
+      operationId: queryProjects
+      summary: Query Projects
+      description: Returns a list of projects on the specified site.
+      tags:
+        - Projects
+      responses:
+        '200':
+          description: A list of projects.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+    post:
+      operationId: createProject
+      summary: Create Project
+      description: Creates a project on the specified site.
+      tags:
+        - Projects
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Request'
+      responses:
+        '201':
+          description: Project created.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+  /sites/{siteId}/projects/{projectId}:
+    parameters:
+      - $ref: '#/components/parameters/SiteId'
+      - $ref: '#/components/parameters/ProjectId'
+    put:
+      operationId: updateProject
+      summary: Update Project
+      description: Updates the specified project.
+      tags:
+        - Projects
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Request'
+      responses:
+        '200':
+          description: Project updated.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+    delete:
+      operationId: deleteProject
+      summary: Delete Project
+      description: Deletes the specified project.
+      tags:
+        - Projects
+      responses:
+        '204':
+          description: Project deleted.
+  /sites/{siteId}/workbooks:
+    parameters:
+      - $ref: '#/components/parameters/SiteId'
+    get:
+      operationId: queryWorkbooksForSite
+      summary: Query Workbooks for Site
+      description: Returns the workbooks on a site.
+      tags:
+        - Workbooks
+      responses:
+        '200':
+          description: A list of workbooks.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+    post:
+      operationId: publishWorkbook
+      summary: Publish Workbook
+      description: Publishes a workbook to the specified site.
+      tags:
+        - Workbooks
+      requestBody:
+        required: true
+        content:
+          multipart/mixed:
+            schema:
+              $ref: '#/components/schemas/Request'
+      responses:
+        '201':
+          description: Workbook published.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+  /sites/{siteId}/workbooks/{workbookId}:
+    parameters:
+      - $ref: '#/components/parameters/SiteId'
+      - $ref: '#/components/parameters/WorkbookId'
+    get:
+      operationId: queryWorkbook
+      summary: Query Workbook
+      description: Returns information about the specified workbook.
+      tags:
+        - Workbooks
+      responses:
+        '200':
+          description: Workbook details.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+    put:
+      operationId: updateWorkbook
+      summary: Update Workbook
+      description: Updates the specified workbook.
+      tags:
+        - Workbooks
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Request'
+      responses:
+        '200':
+          description: Workbook updated.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+    delete:
+      operationId: deleteWorkbook
+      summary: Delete Workbook
+      description: Deletes the specified workbook.
+      tags:
+        - Workbooks
+      responses:
+        '204':
+          description: Workbook deleted.
+  /sites/{siteId}/workbooks/{workbookId}/content:
+    parameters:
+      - $ref: '#/components/parameters/SiteId'
+      - $ref: '#/components/parameters/WorkbookId'
+    get:
+      operationId: downloadWorkbook
+      summary: Download Workbook
+      description: Downloads the specified workbook as a .twb or .twbx file.
+      tags:
+        - Workbooks
+      responses:
+        '200':
+          description: Workbook file.
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+  /sites/{siteId}/datasources:
+    parameters:
+      - $ref: '#/components/parameters/SiteId'
+    get:
+      operationId: queryDataSources
+      summary: Query Data Sources
+      description: Returns a list of published data sources on the specified site.
+      tags:
+        - Data Sources
+      responses:
+        '200':
+          description: A list of data sources.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+  /sites/{siteId}/datasources/{datasourceId}:
+    parameters:
+      - $ref: '#/components/parameters/SiteId'
+      - $ref: '#/components/parameters/DatasourceId'
+    get:
+      operationId: queryDataSource
+      summary: Query Data Source
+      description: Returns information about the specified data source.
+      tags:
+        - Data Sources
+      responses:
+        '200':
+          description: Data source details.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+  /sites/{siteId}/datasources/{datasourceId}/refresh:
+    parameters:
+      - $ref: '#/components/parameters/SiteId'
+      - $ref: '#/components/parameters/DatasourceId'
+    post:
+      operationId: refreshDataSource
+      summary: Refresh Data Source
+      description: Triggers an extract refresh for the specified data source.
+      tags:
+        - Data Sources
+      responses:
+        '202':
+          description: Refresh scheduled.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+  /serverinfo:
+    get:
+      operationId: serverInfo
+      summary: Server Info
+      description: Returns build and version information for the Tableau Server.
+      tags:
+        - Server
+      security: []
+      responses:
+        '200':
+          description: Server information.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+components:
+  securitySchemes:
+    tableauAuth:
+      type: apiKey
+      in: header
+      name: X-Tableau-Auth
+      description: Authentication token returned by the Sign In endpoint.
+  parameters:
+    SiteId:
+      name: siteId
+      in: path
+      required: true
+      description: The LUID of the site.
+      schema:
+        type: string
+    UserId:
+      name: userId
+      in: path
+      required: true
+      description: The LUID of the user.
+      schema:
+        type: string
+    ProjectId:
+      name: projectId
+      in: path
+      required: true
+      description: The LUID of the project.
+      schema:
+        type: string
+    WorkbookId:
+      name: workbookId
+      in: path
+      required: true
+      description: The LUID of the workbook.
+      schema:
+        type: string
+    DatasourceId:
+      name: datasourceId
+      in: path
+      required: true
+      description: The LUID of the data source.
+      schema:
+        type: string
+  schemas:
+    Request:
+      type: object
+      description: Generic Tableau REST API request envelope (tsRequest).
+      additionalProperties: true
+    Response:
+      type: object
+      description: Generic Tableau REST API response envelope (tsResponse).
+      additionalProperties: true
+x-generated-from: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref.htm
+x-generated-by: claude-crawl-2026-05-08
