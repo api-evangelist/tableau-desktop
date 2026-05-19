@@ -1,0 +1,174 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Tableau REST API — Users
+  description: 'Tableau REST API — Users. 4 operations. Lead operation: Get Users on Site. Self-contained Naftiko capability
+    covering one Tableau Desktop business surface.'
+  tags:
+  - Tableau Desktop
+  - Users
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TABLEAU_DESKTOP_API_KEY: TABLEAU_DESKTOP_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: tableau-desktop-users
+    baseUri: https://{tableau-server}/api/3.22
+    description: Tableau REST API — Users business capability. Self-contained, no shared references.
+    resources:
+    - name: sites-siteId-users
+      path: /sites/{siteId}/users
+      operations:
+      - name: getusersonsite
+        method: GET
+        description: Get Users on Site
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: addusertosite
+        method: POST
+        description: Add User to Site
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: sites-siteId-users-userId
+      path: /sites/{siteId}/users/{userId}
+      operations:
+      - name: updateuser
+        method: PUT
+        description: Update User
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: removeuserfromsite
+        method: DELETE
+        description: Remove User from Site
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: X-Tableau-Auth
+      value: '{{env.TABLEAU_DESKTOP_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: tableau-desktop-users-rest
+    port: 8080
+    description: REST adapter for Tableau REST API — Users. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/sites/{siteid}/users
+      name: sites-siteid-users
+      description: REST surface for sites-siteId-users.
+      operations:
+      - method: GET
+        name: getusersonsite
+        description: Get Users on Site
+        call: tableau-desktop-users.getusersonsite
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: addusertosite
+        description: Add User to Site
+        call: tableau-desktop-users.addusertosite
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sites/{siteid}/users/{userid}
+      name: sites-siteid-users-userid
+      description: REST surface for sites-siteId-users-userId.
+      operations:
+      - method: PUT
+        name: updateuser
+        description: Update User
+        call: tableau-desktop-users.updateuser
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: removeuserfromsite
+        description: Remove User from Site
+        call: tableau-desktop-users.removeuserfromsite
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: tableau-desktop-users-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Tableau REST API — Users. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: get-users-site
+      description: Get Users on Site
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tableau-desktop-users.getusersonsite
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: add-user-site
+      description: Add User to Site
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tableau-desktop-users.addusertosite
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-user
+      description: Update User
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: tableau-desktop-users.updateuser
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: remove-user-site
+      description: Remove User from Site
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: tableau-desktop-users.removeuserfromsite
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,136 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Tableau REST API — Data Sources
+  description: 'Tableau REST API — Data Sources. 3 operations. Lead operation: Query Data Sources. Self-contained Naftiko
+    capability covering one Tableau Desktop business surface.'
+  tags:
+  - Tableau Desktop
+  - Data Sources
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TABLEAU_DESKTOP_API_KEY: TABLEAU_DESKTOP_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: tableau-desktop-data-sources
+    baseUri: https://{tableau-server}/api/3.22
+    description: Tableau REST API — Data Sources business capability. Self-contained, no shared references.
+    resources:
+    - name: sites-siteId-datasources
+      path: /sites/{siteId}/datasources
+      operations:
+      - name: querydatasources
+        method: GET
+        description: Query Data Sources
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sites-siteId-datasources-datasourceId
+      path: /sites/{siteId}/datasources/{datasourceId}
+      operations:
+      - name: querydatasource
+        method: GET
+        description: Query Data Source
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sites-siteId-datasources-datasourceId-refresh
+      path: /sites/{siteId}/datasources/{datasourceId}/refresh
+      operations:
+      - name: refreshdatasource
+        method: POST
+        description: Refresh Data Source
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: X-Tableau-Auth
+      value: '{{env.TABLEAU_DESKTOP_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: tableau-desktop-data-sources-rest
+    port: 8080
+    description: REST adapter for Tableau REST API — Data Sources. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/sites/{siteid}/datasources
+      name: sites-siteid-datasources
+      description: REST surface for sites-siteId-datasources.
+      operations:
+      - method: GET
+        name: querydatasources
+        description: Query Data Sources
+        call: tableau-desktop-data-sources.querydatasources
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sites/{siteid}/datasources/{datasourceid}
+      name: sites-siteid-datasources-datasourceid
+      description: REST surface for sites-siteId-datasources-datasourceId.
+      operations:
+      - method: GET
+        name: querydatasource
+        description: Query Data Source
+        call: tableau-desktop-data-sources.querydatasource
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sites/{siteid}/datasources/{datasourceid}/refresh
+      name: sites-siteid-datasources-datasourceid-refresh
+      description: REST surface for sites-siteId-datasources-datasourceId-refresh.
+      operations:
+      - method: POST
+        name: refreshdatasource
+        description: Refresh Data Source
+        call: tableau-desktop-data-sources.refreshdatasource
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: tableau-desktop-data-sources-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Tableau REST API — Data Sources. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: query-data-sources
+      description: Query Data Sources
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tableau-desktop-data-sources.querydatasources
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: query-data-source
+      description: Query Data Source
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tableau-desktop-data-sources.querydatasource
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: refresh-data-source
+      description: Refresh Data Source
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: tableau-desktop-data-sources.refreshdatasource
+      outputParameters:
+      - type: object
+        mapping: $.

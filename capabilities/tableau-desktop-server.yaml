@@ -1,0 +1,72 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Tableau REST API — Server
+  description: 'Tableau REST API — Server. 1 operations. Lead operation: Server Info. Self-contained Naftiko capability covering
+    one Tableau Desktop business surface.'
+  tags:
+  - Tableau Desktop
+  - Server
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TABLEAU_DESKTOP_API_KEY: TABLEAU_DESKTOP_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: tableau-desktop-server
+    baseUri: https://{tableau-server}/api/3.22
+    description: Tableau REST API — Server business capability. Self-contained, no shared references.
+    resources:
+    - name: serverinfo
+      path: /serverinfo
+      operations:
+      - name: serverinfo
+        method: GET
+        description: Server Info
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: X-Tableau-Auth
+      value: '{{env.TABLEAU_DESKTOP_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: tableau-desktop-server-rest
+    port: 8080
+    description: REST adapter for Tableau REST API — Server. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/serverinfo
+      name: serverinfo
+      description: REST surface for serverinfo.
+      operations:
+      - method: GET
+        name: serverinfo
+        description: Server Info
+        call: tableau-desktop-server.serverinfo
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: tableau-desktop-server-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Tableau REST API — Server. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: server-info
+      description: Server Info
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: tableau-desktop-server.serverinfo
+      outputParameters:
+      - type: object
+        mapping: $.
