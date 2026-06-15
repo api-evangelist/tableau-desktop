@@ -1,71 +1,180 @@
 # Tableau Desktop (tableau-desktop)
-APIs and integration points for Tableau Desktop, a data visualization and business intelligence platform from Salesforce.
 
-**URL:** [https://raw.githubusercontent.com/api-evangelist/tableau-desktop/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/tableau-desktop/refs/heads/main/apis.yml)
+APIs and integration points for Tableau Desktop, a data visualization and business intelligence platform from Salesforce. Tableau provides REST APIs, embedding APIs, extension APIs, and SDK tools for building custom visualizations, automating server operations, and extending analytics capabilities.
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/tableau-desktop/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/tableau-desktop/refs/heads/main/apis.yml)
 
-## Tags:
+## Scope
 
- - Analytics, Business Intelligence, Data Visualization, Desktop Application
+- **Type:** Index
+
+## Tags
+
+- Analytics
+- Business Intelligence
+- Data Visualization
+- Desktop Application
 
 ## Timestamps
 
 - **Created:** 2024-01-01
-- **Modified:** 2026-04-18
+- **Modified:** 2026-05-19
 
 ## APIs
 
 ### Tableau REST API
-Manage Tableau Server and Cloud resources programmatically.
+
+Manage and interact with Tableau Server and Tableau Cloud resources programmatically including workbooks, data sources, users, and permissions.
+
+- **Human URL:** [https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api.htm](https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api.htm)
+- **Base URL:** `https://tableau-server/api/3.22`
+
+#### Tags
+
+- Cloud
+- Publishing
+- REST
+- Server
+- Workbooks
+
+#### Properties
+
+- [Documentation](https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api.htm)
+- [API Reference](https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref.htm)
+- [Authentication](https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_concepts_auth.htm)
+- [OpenAPI](openapi/tableau-desktop-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/tableau-desktop.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/tableau-desktop.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### Tableau Extensions API
-Build dashboard extensions for third-party data integration.
+
+Build dashboard extensions that enable users to interact with data from other applications directly in Tableau dashboards.
+
+- **Human URL:** [https://tableau.github.io/extensions-api/](https://tableau.github.io/extensions-api/)
+- **Base URL:** `https://tableau.github.io/extensions-api/`
+
+#### Tags
+
+- Dashboard
+- Extensions
+- JavaScript
+- Web Components
+
+#### Properties
+
+- [Documentation](https://tableau.github.io/extensions-api/docs/trex_overview.html)
+- [API Reference](https://tableau.github.io/extensions-api/docs/index.html)
+- [GitHub Repository](https://github.com/tableau/extensions-api)
+- [Getting Started](https://tableau.github.io/extensions-api/docs/trex_getstarted.html)
+- [Postman Collection](collections/tableau-desktop.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/tableau-desktop.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### Tableau Hyper API
-High-performance data extract management.
+
+Create, read, update, and delete data in .hyper files for use in Tableau Desktop and Server with high-performance data extract capabilities.
+
+- **Human URL:** [https://tableau.github.io/hyper-db/docs/](https://tableau.github.io/hyper-db/docs/)
+- **Base URL:** `https://tableau.github.io/hyper-db/`
+
+#### Tags
+
+- Data Extract
+- Database
+- ETL
+- Hyper
+- SQL
+
+#### Properties
+
+- [Documentation](https://tableau.github.io/hyper-db/docs/)
+- [API Reference](https://tableau.github.io/hyper-db/lang_docs/py/tableauhyperapi.html)
+- [GitHub Repository](https://github.com/tableau/hyper-api-samples)
+- [Release Notes](https://tableau.github.io/hyper-db/docs/releases/)
+- [Postman Collection](collections/tableau-desktop.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/tableau-desktop.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### Tableau Embedding API
-Embed visualizations in web applications.
+
+Embed Tableau visualizations into web applications using modern web components with v3 of the Embedding API.
+
+- **Human URL:** [https://help.tableau.com/current/api/embedding_api/en-us/index.html](https://help.tableau.com/current/api/embedding_api/en-us/index.html)
+- **Base URL:** `https://help.tableau.com/current/api/embedding_api/`
+
+#### Tags
+
+- Embedding
+- Integration
+- JavaScript
+- Web Components
+
+#### Properties
+
+- [Documentation](https://help.tableau.com/current/api/embedding_api/en-us/index.html)
+- [GitHub Repository](https://github.com/tableau/embedding-api-v3-samples)
+- [Authentication](https://help.tableau.com/current/api/embedding_api/en-us/docs/embedding_api_auth.html)
+- [Postman Collection](collections/tableau-desktop.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/tableau-desktop.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### Tableau Metadata API
-Query metadata and lineage with GraphQL.
+
+Discover and query metadata about Tableau content using GraphQL, including workbooks, data sources, flows, and lineage information.
+
+- **Human URL:** [https://help.tableau.com/current/api/metadata_api/en-us/index.html](https://help.tableau.com/current/api/metadata_api/en-us/index.html)
+- **Base URL:** `https://help.tableau.com/current/api/metadata_api/`
+
+#### Tags
+
+- Data Governance
+- GraphQL
+- Lineage
+- Metadata
+
+#### Properties
+
+- [Documentation](https://help.tableau.com/current/api/metadata_api/en-us/index.html)
+- [Getting Started](https://help.tableau.com/current/api/metadata_api/en-us/docs/meta_api_start.html)
+- [Postman Collection](collections/tableau-desktop.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/tableau-desktop.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### Tableau Server Client (Python)
-Python automation library for Tableau Server.
 
-## Features
+Python library that provides a convenient wrapper for the Tableau Server REST API for automation and integration workflows.
 
-| Name | Description |
-|------|-------------|
-| REST API Management | Full CRUD operations on Tableau Server and Cloud resources. |
-| Dashboard Extensions | Build custom interactive extensions for dashboards. |
-| High-Performance Data Extracts | Create and manage .hyper data extract files. |
-| Embedded Analytics | Embed interactive visualizations in web applications. |
-| Metadata and Lineage | Query content metadata and data lineage using GraphQL. |
+- **Human URL:** [https://tableau.github.io/server-client-python/](https://tableau.github.io/server-client-python/)
+- **Base URL:** `https://tableau.github.io/server-client-python/`
 
-## Use Cases
+#### Tags
 
-| Name | Description |
-|------|-------------|
-| Embedded Analytics | Embed interactive dashboards into customer-facing web applications. |
-| Data Pipeline Automation | Automate data extract creation and refresh workflows. |
-| Content Migration | Migrate workbooks between environments programmatically. |
-| Custom Dashboard Extensions | Build write-back forms and custom controls. |
-| Data Governance | Track data lineage for impact analysis. |
+- Automation
+- Python
+- REST API
+- Server
 
-## Integrations
+#### Properties
 
-| Name | Description |
-|------|-------------|
-| Salesforce | Native CRM integration for embedded analytics. |
-| Snowflake | High-performance data connectivity. |
-| AWS | Cloud deployment with S3 and Redshift support. |
-| Azure | Azure integration with Synapse Analytics. |
-| Python | TabPy for Python scripts in calculated fields. |
-| Slack | Collaboration integration for sharing content. |
+- [Documentation](https://tableau.github.io/server-client-python/docs/)
+- [API Reference](https://tableau.github.io/server-client-python/docs/api-ref)
+- [GitHub Repository](https://github.com/tableau/server-client-python)
+- [Postman Collection](collections/tableau-desktop.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/tableau-desktop.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+## Common Properties
+
+- [Portal](https://www.tableau.com/developer)
+- [Documentation](https://www.tableau.com/developer/tools)
+- [Getting Started](https://www.tableau.com/developer/getting-started)
+- [Blog](https://www.tableau.com/about/blog/developers)
+- [Support](https://www.tableau.com/support)
+- [Terms of Service](https://www.tableau.com/tos)
+- [Privacy Policy](https://www.tableau.com/privacy)
+- [Training](https://trailhead.salesforce.com/content/learn/modules/tableau-developer-platform/get-started-with-the-tableau-developer-platform)
+- [GitHub Organization](https://github.com/tableau)
+- [Features](undefined)
+- [Use Cases](undefined)
+- [Integrations](undefined)
 
 ## Maintainers
 
 **FN:** Kin Lane
 **Email:** kin@apievangelist.com
+**URL:** https://apievangelist.com

@@ -1,8 +1,9 @@
 aid: tableau-desktop
 name: Tableau Desktop
-description: APIs and integration points for Tableau Desktop, a data visualization and business intelligence platform from
-  Salesforce. Tableau provides REST APIs, embedding APIs, extension APIs, and SDK tools for building custom visualizations,
-  automating server operations, and extending analytics capabilities.
+description: >-
+  APIs and integration points for Tableau Desktop, a data visualization and business intelligence platform from
+  Salesforce. Tableau provides REST APIs, embedding APIs, extension APIs, and SDK tools for building custom
+  visualizations, automating server operations, and extending analytics capabilities.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/tableau-desktop/refs/heads/main/apis.yml
@@ -17,7 +18,8 @@ tags:
 apis:
 - aid: tableau-desktop:rest-api
   name: Tableau REST API
-  description: Manage and interact with Tableau Server and Tableau Cloud resources programmatically including workbooks, data
+  description: >-
+    Manage and interact with Tableau Server and Tableau Cloud resources programmatically including workbooks, data
     sources, users, and permissions.
   humanURL: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api.htm
   baseURL: https://tableau-server/api/3.22
@@ -36,23 +38,10 @@ apis:
     url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_concepts_auth.htm
   - type: OpenAPI
     url: openapi/tableau-desktop-openapi.yml
-  - type: NaftikoCapability
-    url: capabilities/tableau-desktop-authentication.yaml
-  - type: NaftikoCapability
-    url: capabilities/tableau-desktop-data-sources.yaml
-  - type: NaftikoCapability
-    url: capabilities/tableau-desktop-projects.yaml
-  - type: NaftikoCapability
-    url: capabilities/tableau-desktop-server.yaml
-  - type: NaftikoCapability
-    url: capabilities/tableau-desktop-sites.yaml
-  - type: NaftikoCapability
-    url: capabilities/tableau-desktop-users.yaml
-  - type: NaftikoCapability
-    url: capabilities/tableau-desktop-workbooks.yaml
 - aid: tableau-desktop:extensions-api
   name: Tableau Extensions API
-  description: Build dashboard extensions that enable users to interact with data from other applications directly in Tableau
+  description: >-
+    Build dashboard extensions that enable users to interact with data from other applications directly in Tableau
     dashboards.
   humanURL: https://tableau.github.io/extensions-api/
   baseURL: https://tableau.github.io/extensions-api/
@@ -72,7 +61,8 @@ apis:
     url: https://tableau.github.io/extensions-api/docs/trex_getstarted.html
 - aid: tableau-desktop:hyper-api
   name: Tableau Hyper API
-  description: Create, read, update, and delete data in .hyper files for use in Tableau Desktop and Server with high-performance
+  description: >-
+    Create, read, update, and delete data in .hyper files for use in Tableau Desktop and Server with high-performance
     data extract capabilities.
   humanURL: https://tableau.github.io/hyper-db/docs/
   baseURL: https://tableau.github.io/hyper-db/
@@ -110,8 +100,9 @@ apis:
     url: https://help.tableau.com/current/api/embedding_api/en-us/docs/embedding_api_auth.html
 - aid: tableau-desktop:metadata-api
   name: Tableau Metadata API
-  description: Discover and query metadata about Tableau content using GraphQL, including workbooks, data sources, flows,
-    and lineage information.
+  description: >-
+    Discover and query metadata about Tableau content using GraphQL, including workbooks, data sources, flows, and
+    lineage information.
   humanURL: https://help.tableau.com/current/api/metadata_api/en-us/index.html
   baseURL: https://help.tableau.com/current/api/metadata_api/
   tags:
@@ -124,9 +115,12 @@ apis:
     url: https://help.tableau.com/current/api/metadata_api/en-us/index.html
   - type: GettingStarted
     url: https://help.tableau.com/current/api/metadata_api/en-us/docs/meta_api_start.html
+  - url: graphql/tableau-desktop-graphql.md
+    type: GraphQL
 - aid: tableau-desktop:server-client-python
   name: Tableau Server Client (Python)
-  description: Python library that provides a convenient wrapper for the Tableau Server REST API for automation and integration
+  description: >-
+    Python library that provides a convenient wrapper for the Tableau Server REST API for automation and integration
     workflows.
   humanURL: https://tableau.github.io/server-client-python/
   baseURL: https://tableau.github.io/server-client-python/
@@ -158,7 +152,8 @@ common:
 - type: PrivacyPolicy
   url: https://www.tableau.com/privacy
 - type: Training
-  url: https://trailhead.salesforce.com/content/learn/modules/tableau-developer-platform/get-started-with-the-tableau-developer-platform
+  url: >-
+    https://trailhead.salesforce.com/content/learn/modules/tableau-developer-platform/get-started-with-the-tableau-developer-platform
 - type: GitHubOrganization
   url: https://github.com/tableau
 - type: Features

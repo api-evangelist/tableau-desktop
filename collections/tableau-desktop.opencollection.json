@@ -1,0 +1,569 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Tableau REST API",
+    "version": "3.22"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Tableau-Auth",
+      "value": "{{X-Tableau-Auth}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sign In",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tableau-server}/api/3.22/auth/signin"
+          },
+          "docs": "Signs the specified user in to Tableau Server or Tableau Cloud and returns an authentication token."
+        },
+        {
+          "info": {
+            "name": "Sign Out",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tableau-server}/api/3.22/auth/signout"
+          },
+          "docs": "Signs the user out of Tableau Server or Tableau Cloud."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Sites",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Sites",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tableau-server}/api/3.22/sites"
+          },
+          "docs": "Returns a list of sites on the server."
+        },
+        {
+          "info": {
+            "name": "Create Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tableau-server}/api/3.22/sites"
+          },
+          "docs": "Creates a site."
+        },
+        {
+          "info": {
+            "name": "Query Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              }
+            ]
+          },
+          "docs": "Returns information about the specified site."
+        },
+        {
+          "info": {
+            "name": "Update Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              }
+            ]
+          },
+          "docs": "Updates the specified site."
+        },
+        {
+          "info": {
+            "name": "Delete Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              }
+            ]
+          },
+          "docs": "Deletes the specified site."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Users on Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/users",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              }
+            ]
+          },
+          "docs": "Returns the users associated with the specified site."
+        },
+        {
+          "info": {
+            "name": "Add User to Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/users",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              }
+            ]
+          },
+          "docs": "Adds a user to the specified site."
+        },
+        {
+          "info": {
+            "name": "Update User",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/users/:userId",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the user."
+              }
+            ]
+          },
+          "docs": "Updates the specified user."
+        },
+        {
+          "info": {
+            "name": "Remove User from Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/users/:userId",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the user."
+              }
+            ]
+          },
+          "docs": "Removes the specified user from the site."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/projects",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              }
+            ]
+          },
+          "docs": "Returns a list of projects on the specified site."
+        },
+        {
+          "info": {
+            "name": "Create Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/projects",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              }
+            ]
+          },
+          "docs": "Creates a project on the specified site."
+        },
+        {
+          "info": {
+            "name": "Update Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/projects/:projectId",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the project."
+              }
+            ]
+          },
+          "docs": "Updates the specified project."
+        },
+        {
+          "info": {
+            "name": "Delete Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/projects/:projectId",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the project."
+              }
+            ]
+          },
+          "docs": "Deletes the specified project."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Workbooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Workbooks for Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/workbooks",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              }
+            ]
+          },
+          "docs": "Returns the workbooks on a site."
+        },
+        {
+          "info": {
+            "name": "Publish Workbook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/workbooks",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              }
+            ]
+          },
+          "docs": "Publishes a workbook to the specified site."
+        },
+        {
+          "info": {
+            "name": "Query Workbook",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/workbooks/:workbookId",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              },
+              {
+                "name": "workbookId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the workbook."
+              }
+            ]
+          },
+          "docs": "Returns information about the specified workbook."
+        },
+        {
+          "info": {
+            "name": "Update Workbook",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/workbooks/:workbookId",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              },
+              {
+                "name": "workbookId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the workbook."
+              }
+            ]
+          },
+          "docs": "Updates the specified workbook."
+        },
+        {
+          "info": {
+            "name": "Delete Workbook",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/workbooks/:workbookId",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              },
+              {
+                "name": "workbookId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the workbook."
+              }
+            ]
+          },
+          "docs": "Deletes the specified workbook."
+        },
+        {
+          "info": {
+            "name": "Download Workbook",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/workbooks/:workbookId/content",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              },
+              {
+                "name": "workbookId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the workbook."
+              }
+            ]
+          },
+          "docs": "Downloads the specified workbook as a .twb or .twbx file."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Data Sources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Data Sources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/datasources",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              }
+            ]
+          },
+          "docs": "Returns a list of published data sources on the specified site."
+        },
+        {
+          "info": {
+            "name": "Query Data Source",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/datasources/:datasourceId",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              },
+              {
+                "name": "datasourceId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the data source."
+              }
+            ]
+          },
+          "docs": "Returns information about the specified data source."
+        },
+        {
+          "info": {
+            "name": "Refresh Data Source",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/datasources/:datasourceId/refresh",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              },
+              {
+                "name": "datasourceId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the data source."
+              }
+            ]
+          },
+          "docs": "Triggers an extract refresh for the specified data source."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Server",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Server Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tableau-server}/api/3.22/serverinfo"
+          },
+          "docs": "Returns build and version information for the Tableau Server."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
