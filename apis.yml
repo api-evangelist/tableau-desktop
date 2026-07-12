@@ -137,6 +137,10 @@ apis:
   - type: GitHubRepository
     url: https://github.com/tableau/server-client-python
 common:
+- type: DomainSecurity
+  url: security/tableau-desktop-domain-security.yml
+- type: Authentication
+  url: authentication/tableau-desktop-authentication.yml
 - type: Portal
   url: https://www.tableau.com/developer
 - type: Documentation

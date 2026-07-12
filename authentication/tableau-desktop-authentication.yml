@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/tableau-desktop-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: tableauAuth
+  type: apiKey
+  in: header
+  parameter: X-Tableau-Auth
+  description: Authentication token returned by the Sign In endpoint.
+  sources:
+  - openapi/tableau-desktop-openapi.yml
