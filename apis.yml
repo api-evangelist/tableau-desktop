@@ -137,6 +137,8 @@ apis:
   - type: GitHubRepository
     url: https://github.com/tableau/server-client-python
 common:
+- type: AgenticAccess
+  url: agentic-access/tableau-desktop-agentic-access.yml
 - type: DomainSecurity
   url: security/tableau-desktop-domain-security.yml
 - type: Authentication
