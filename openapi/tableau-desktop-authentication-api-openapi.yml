@@ -1,0 +1,69 @@
+openapi: 3.1.0
+info:
+  title: Tableau REST Authentication API
+  version: '3.22'
+  description: The Tableau REST API enables programmatic management of Tableau Server and Tableau Cloud resources, including authentication, sites, users, projects, workbooks, and data sources. This minimal specification captures a representative subset of endpoints documented in the Tableau REST API Reference.
+  contact:
+    name: Tableau Developer Program
+    url: https://www.tableau.com/developer
+servers:
+- url: https://{tableau-server}/api/3.22
+  description: Tableau Server / Tableau Cloud REST API
+  variables:
+    tableau-server:
+      default: 10ay.online.tableau.com
+      description: Hostname of the Tableau Server or Tableau Cloud pod.
+security:
+- tableauAuth: []
+tags:
+- name: Authentication
+  description: Sign in and sign out operations.
+paths:
+  /auth/signin:
+    post:
+      operationId: signIn
+      summary: Sign In
+      description: Signs the specified user in to Tableau Server or Tableau Cloud and returns an authentication token.
+      tags:
+      - Authentication
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Request'
+      responses:
+        '200':
+          description: Successful sign in.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+  /auth/signout:
+    post:
+      operationId: signOut
+      summary: Sign Out
+      description: Signs the user out of Tableau Server or Tableau Cloud.
+      tags:
+      - Authentication
+      responses:
+        '204':
+          description: Successfully signed out.
+components:
+  schemas:
+    Request:
+      type: object
+      description: Generic Tableau REST API request envelope (tsRequest).
+      additionalProperties: true
+    Response:
+      type: object
+      description: Generic Tableau REST API response envelope (tsResponse).
+      additionalProperties: true
+  securitySchemes:
+    tableauAuth:
+      type: apiKey
+      in: header
+      name: X-Tableau-Auth
+      description: Authentication token returned by the Sign In endpoint.
+x-generated-from: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref.htm
+x-generated-by: claude-crawl-2026-05-08

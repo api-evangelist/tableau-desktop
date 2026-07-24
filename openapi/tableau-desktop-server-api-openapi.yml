@@ -1,0 +1,50 @@
+openapi: 3.1.0
+info:
+  title: Tableau REST Authentication Server API
+  version: '3.22'
+  description: The Tableau REST API enables programmatic management of Tableau Server and Tableau Cloud resources, including authentication, sites, users, projects, workbooks, and data sources. This minimal specification captures a representative subset of endpoints documented in the Tableau REST API Reference.
+  contact:
+    name: Tableau Developer Program
+    url: https://www.tableau.com/developer
+servers:
+- url: https://{tableau-server}/api/3.22
+  description: Tableau Server / Tableau Cloud REST API
+  variables:
+    tableau-server:
+      default: 10ay.online.tableau.com
+      description: Hostname of the Tableau Server or Tableau Cloud pod.
+security:
+- tableauAuth: []
+tags:
+- name: Server
+  description: Server information.
+paths:
+  /serverinfo:
+    get:
+      operationId: serverInfo
+      summary: Server Info
+      description: Returns build and version information for the Tableau Server.
+      tags:
+      - Server
+      security: []
+      responses:
+        '200':
+          description: Server information.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+components:
+  schemas:
+    Response:
+      type: object
+      description: Generic Tableau REST API response envelope (tsResponse).
+      additionalProperties: true
+  securitySchemes:
+    tableauAuth:
+      type: apiKey
+      in: header
+      name: X-Tableau-Auth
+      description: Authentication token returned by the Sign In endpoint.
+x-generated-from: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref.htm
+x-generated-by: claude-crawl-2026-05-08

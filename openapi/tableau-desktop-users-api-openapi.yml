@@ -1,0 +1,121 @@
+openapi: 3.1.0
+info:
+  title: Tableau REST Authentication Users API
+  version: '3.22'
+  description: The Tableau REST API enables programmatic management of Tableau Server and Tableau Cloud resources, including authentication, sites, users, projects, workbooks, and data sources. This minimal specification captures a representative subset of endpoints documented in the Tableau REST API Reference.
+  contact:
+    name: Tableau Developer Program
+    url: https://www.tableau.com/developer
+servers:
+- url: https://{tableau-server}/api/3.22
+  description: Tableau Server / Tableau Cloud REST API
+  variables:
+    tableau-server:
+      default: 10ay.online.tableau.com
+      description: Hostname of the Tableau Server or Tableau Cloud pod.
+security:
+- tableauAuth: []
+tags:
+- name: Users
+  description: Manage users on a site.
+paths:
+  /sites/{siteId}/users:
+    parameters:
+    - $ref: '#/components/parameters/SiteId'
+    get:
+      operationId: getUsersOnSite
+      summary: Get Users on Site
+      description: Returns the users associated with the specified site.
+      tags:
+      - Users
+      responses:
+        '200':
+          description: A list of users.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+    post:
+      operationId: addUserToSite
+      summary: Add User to Site
+      description: Adds a user to the specified site.
+      tags:
+      - Users
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Request'
+      responses:
+        '201':
+          description: User added.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+  /sites/{siteId}/users/{userId}:
+    parameters:
+    - $ref: '#/components/parameters/SiteId'
+    - $ref: '#/components/parameters/UserId'
+    put:
+      operationId: updateUser
+      summary: Update User
+      description: Updates the specified user.
+      tags:
+      - Users
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Request'
+      responses:
+        '200':
+          description: User updated.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+    delete:
+      operationId: removeUserFromSite
+      summary: Remove User from Site
+      description: Removes the specified user from the site.
+      tags:
+      - Users
+      responses:
+        '204':
+          description: User removed.
+components:
+  parameters:
+    UserId:
+      name: userId
+      in: path
+      required: true
+      description: The LUID of the user.
+      schema:
+        type: string
+    SiteId:
+      name: siteId
+      in: path
+      required: true
+      description: The LUID of the site.
+      schema:
+        type: string
+  schemas:
+    Response:
+      type: object
+      description: Generic Tableau REST API response envelope (tsResponse).
+      additionalProperties: true
+    Request:
+      type: object
+      description: Generic Tableau REST API request envelope (tsRequest).
+      additionalProperties: true
+  securitySchemes:
+    tableauAuth:
+      type: apiKey
+      in: header
+      name: X-Tableau-Auth
+      description: Authentication token returned by the Sign In endpoint.
+x-generated-from: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref.htm
+x-generated-by: claude-crawl-2026-05-08

@@ -1,0 +1,100 @@
+openapi: 3.1.0
+info:
+  title: Tableau REST Authentication Data Sources API
+  version: '3.22'
+  description: The Tableau REST API enables programmatic management of Tableau Server and Tableau Cloud resources, including authentication, sites, users, projects, workbooks, and data sources. This minimal specification captures a representative subset of endpoints documented in the Tableau REST API Reference.
+  contact:
+    name: Tableau Developer Program
+    url: https://www.tableau.com/developer
+servers:
+- url: https://{tableau-server}/api/3.22
+  description: Tableau Server / Tableau Cloud REST API
+  variables:
+    tableau-server:
+      default: 10ay.online.tableau.com
+      description: Hostname of the Tableau Server or Tableau Cloud pod.
+security:
+- tableauAuth: []
+tags:
+- name: Data Sources
+  description: Manage and refresh published data sources.
+paths:
+  /sites/{siteId}/datasources:
+    parameters:
+    - $ref: '#/components/parameters/SiteId'
+    get:
+      operationId: queryDataSources
+      summary: Query Data Sources
+      description: Returns a list of published data sources on the specified site.
+      tags:
+      - Data Sources
+      responses:
+        '200':
+          description: A list of data sources.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+  /sites/{siteId}/datasources/{datasourceId}:
+    parameters:
+    - $ref: '#/components/parameters/SiteId'
+    - $ref: '#/components/parameters/DatasourceId'
+    get:
+      operationId: queryDataSource
+      summary: Query Data Source
+      description: Returns information about the specified data source.
+      tags:
+      - Data Sources
+      responses:
+        '200':
+          description: Data source details.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+  /sites/{siteId}/datasources/{datasourceId}/refresh:
+    parameters:
+    - $ref: '#/components/parameters/SiteId'
+    - $ref: '#/components/parameters/DatasourceId'
+    post:
+      operationId: refreshDataSource
+      summary: Refresh Data Source
+      description: Triggers an extract refresh for the specified data source.
+      tags:
+      - Data Sources
+      responses:
+        '202':
+          description: Refresh scheduled.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+components:
+  parameters:
+    DatasourceId:
+      name: datasourceId
+      in: path
+      required: true
+      description: The LUID of the data source.
+      schema:
+        type: string
+    SiteId:
+      name: siteId
+      in: path
+      required: true
+      description: The LUID of the site.
+      schema:
+        type: string
+  schemas:
+    Response:
+      type: object
+      description: Generic Tableau REST API response envelope (tsResponse).
+      additionalProperties: true
+  securitySchemes:
+    tableauAuth:
+      type: apiKey
+      in: header
+      name: X-Tableau-Auth
+      description: Authentication token returned by the Sign In endpoint.
+x-generated-from: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref.htm
+x-generated-by: claude-crawl-2026-05-08

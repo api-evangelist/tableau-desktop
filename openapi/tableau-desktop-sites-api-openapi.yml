@@ -1,0 +1,124 @@
+openapi: 3.1.0
+info:
+  title: Tableau REST Authentication Sites API
+  version: '3.22'
+  description: The Tableau REST API enables programmatic management of Tableau Server and Tableau Cloud resources, including authentication, sites, users, projects, workbooks, and data sources. This minimal specification captures a representative subset of endpoints documented in the Tableau REST API Reference.
+  contact:
+    name: Tableau Developer Program
+    url: https://www.tableau.com/developer
+servers:
+- url: https://{tableau-server}/api/3.22
+  description: Tableau Server / Tableau Cloud REST API
+  variables:
+    tableau-server:
+      default: 10ay.online.tableau.com
+      description: Hostname of the Tableau Server or Tableau Cloud pod.
+security:
+- tableauAuth: []
+tags:
+- name: Sites
+  description: Manage Tableau sites.
+paths:
+  /sites:
+    get:
+      operationId: querySites
+      summary: Query Sites
+      description: Returns a list of sites on the server.
+      tags:
+      - Sites
+      responses:
+        '200':
+          description: A list of sites.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+    post:
+      operationId: createSite
+      summary: Create Site
+      description: Creates a site.
+      tags:
+      - Sites
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Request'
+      responses:
+        '201':
+          description: Site created.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+  /sites/{siteId}:
+    parameters:
+    - $ref: '#/components/parameters/SiteId'
+    get:
+      operationId: querySite
+      summary: Query Site
+      description: Returns information about the specified site.
+      tags:
+      - Sites
+      responses:
+        '200':
+          description: Site information.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+    put:
+      operationId: updateSite
+      summary: Update Site
+      description: Updates the specified site.
+      tags:
+      - Sites
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Request'
+      responses:
+        '200':
+          description: Site updated.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+    delete:
+      operationId: deleteSite
+      summary: Delete Site
+      description: Deletes the specified site.
+      tags:
+      - Sites
+      responses:
+        '204':
+          description: Site deleted.
+components:
+  schemas:
+    Request:
+      type: object
+      description: Generic Tableau REST API request envelope (tsRequest).
+      additionalProperties: true
+    Response:
+      type: object
+      description: Generic Tableau REST API response envelope (tsResponse).
+      additionalProperties: true
+  parameters:
+    SiteId:
+      name: siteId
+      in: path
+      required: true
+      description: The LUID of the site.
+      schema:
+        type: string
+  securitySchemes:
+    tableauAuth:
+      type: apiKey
+      in: header
+      name: X-Tableau-Auth
+      description: Authentication token returned by the Sign In endpoint.
+x-generated-from: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref.htm
+x-generated-by: claude-crawl-2026-05-08

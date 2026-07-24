@@ -1,0 +1,152 @@
+openapi: 3.1.0
+info:
+  title: Tableau REST Authentication Workbooks API
+  version: '3.22'
+  description: The Tableau REST API enables programmatic management of Tableau Server and Tableau Cloud resources, including authentication, sites, users, projects, workbooks, and data sources. This minimal specification captures a representative subset of endpoints documented in the Tableau REST API Reference.
+  contact:
+    name: Tableau Developer Program
+    url: https://www.tableau.com/developer
+servers:
+- url: https://{tableau-server}/api/3.22
+  description: Tableau Server / Tableau Cloud REST API
+  variables:
+    tableau-server:
+      default: 10ay.online.tableau.com
+      description: Hostname of the Tableau Server or Tableau Cloud pod.
+security:
+- tableauAuth: []
+tags:
+- name: Workbooks
+  description: Manage and download workbooks.
+paths:
+  /sites/{siteId}/workbooks:
+    parameters:
+    - $ref: '#/components/parameters/SiteId'
+    get:
+      operationId: queryWorkbooksForSite
+      summary: Query Workbooks for Site
+      description: Returns the workbooks on a site.
+      tags:
+      - Workbooks
+      responses:
+        '200':
+          description: A list of workbooks.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+    post:
+      operationId: publishWorkbook
+      summary: Publish Workbook
+      description: Publishes a workbook to the specified site.
+      tags:
+      - Workbooks
+      requestBody:
+        required: true
+        content:
+          multipart/mixed:
+            schema:
+              $ref: '#/components/schemas/Request'
+      responses:
+        '201':
+          description: Workbook published.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+  /sites/{siteId}/workbooks/{workbookId}:
+    parameters:
+    - $ref: '#/components/parameters/SiteId'
+    - $ref: '#/components/parameters/WorkbookId'
+    get:
+      operationId: queryWorkbook
+      summary: Query Workbook
+      description: Returns information about the specified workbook.
+      tags:
+      - Workbooks
+      responses:
+        '200':
+          description: Workbook details.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+    put:
+      operationId: updateWorkbook
+      summary: Update Workbook
+      description: Updates the specified workbook.
+      tags:
+      - Workbooks
+      requestBody:
+        required: true
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Request'
+      responses:
+        '200':
+          description: Workbook updated.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Response'
+    delete:
+      operationId: deleteWorkbook
+      summary: Delete Workbook
+      description: Deletes the specified workbook.
+      tags:
+      - Workbooks
+      responses:
+        '204':
+          description: Workbook deleted.
+  /sites/{siteId}/workbooks/{workbookId}/content:
+    parameters:
+    - $ref: '#/components/parameters/SiteId'
+    - $ref: '#/components/parameters/WorkbookId'
+    get:
+      operationId: downloadWorkbook
+      summary: Download Workbook
+      description: Downloads the specified workbook as a .twb or .twbx file.
+      tags:
+      - Workbooks
+      responses:
+        '200':
+          description: Workbook file.
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+components:
+  schemas:
+    Request:
+      type: object
+      description: Generic Tableau REST API request envelope (tsRequest).
+      additionalProperties: true
+    Response:
+      type: object
+      description: Generic Tableau REST API response envelope (tsResponse).
+      additionalProperties: true
+  parameters:
+    SiteId:
+      name: siteId
+      in: path
+      required: true
+      description: The LUID of the site.
+      schema:
+        type: string
+    WorkbookId:
+      name: workbookId
+      in: path
+      required: true
+      description: The LUID of the workbook.
+      schema:
+        type: string
+  securitySchemes:
+    tableauAuth:
+      type: apiKey
+      in: header
+      name: X-Tableau-Auth
+      description: Authentication token returned by the Sign In endpoint.
+x-generated-from: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref.htm
+x-generated-by: claude-crawl-2026-05-08
