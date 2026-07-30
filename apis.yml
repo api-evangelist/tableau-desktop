@@ -5,7 +5,20 @@ description: >-
   Salesforce. Tableau provides REST APIs, embedding APIs, extension APIs, and SDK tools for building custom
   visualizations, automating server operations, and extending analytics capabilities.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/tableau-desktop.png
 url: https://raw.githubusercontent.com/api-evangelist/tableau-desktop/refs/heads/main/apis.yml
 created: '2024-01-01'
 modified: '2026-05-19'
@@ -16,33 +29,11 @@ tags:
 - Data Visualization
 - Desktop Application
 apis:
-- aid: tableau-desktop:rest-api
-  name: Tableau REST API
-  description: >-
-    Manage and interact with Tableau Server and Tableau Cloud resources programmatically including workbooks, data
-    sources, users, and permissions.
-  humanURL: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api.htm
-  baseURL: https://tableau-server/api/3.22
-  tags:
-  - Cloud
-  - Publishing
-  - REST
-  - Server
-  - Workbooks
-  properties:
-  - type: Documentation
-    url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api.htm
-  - type: APIReference
-    url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref.htm
-  - type: Authentication
-    url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_concepts_auth.htm
-  - type: OpenAPI
-    url: openapi/tableau-desktop-openapi.yml
 - aid: tableau-desktop:extensions-api
   name: Tableau Extensions API
   description: >-
-    Build dashboard extensions that enable users to interact with data from other applications directly in Tableau
-    dashboards.
+    Build dashboard extensions that enable users to interact with data from other applications directly
+    in Tableau dashboards.
   humanURL: https://tableau.github.io/extensions-api/
   baseURL: https://tableau.github.io/extensions-api/
   tags:
@@ -83,7 +74,9 @@ apis:
     url: https://tableau.github.io/hyper-db/docs/releases/
 - aid: tableau-desktop:embedding-api
   name: Tableau Embedding API
-  description: Embed Tableau visualizations into web applications using modern web components with v3 of the Embedding API.
+  description: >-
+    Embed Tableau visualizations into web applications using modern web components with v3 of the Embedding
+    API.
   humanURL: https://help.tableau.com/current/api/embedding_api/en-us/index.html
   baseURL: https://help.tableau.com/current/api/embedding_api/
   tags:
@@ -101,8 +94,8 @@ apis:
 - aid: tableau-desktop:metadata-api
   name: Tableau Metadata API
   description: >-
-    Discover and query metadata about Tableau content using GraphQL, including workbooks, data sources, flows, and
-    lineage information.
+    Discover and query metadata about Tableau content using GraphQL, including workbooks, data sources,
+    flows, and lineage information.
   humanURL: https://help.tableau.com/current/api/metadata_api/en-us/index.html
   baseURL: https://help.tableau.com/current/api/metadata_api/
   tags:
@@ -120,8 +113,8 @@ apis:
 - aid: tableau-desktop:server-client-python
   name: Tableau Server Client (Python)
   description: >-
-    Python library that provides a convenient wrapper for the Tableau Server REST API for automation and integration
-    workflows.
+    Python library that provides a convenient wrapper for the Tableau Server REST API for automation and
+    integration workflows.
   humanURL: https://tableau.github.io/server-client-python/
   baseURL: https://tableau.github.io/server-client-python/
   tags:
@@ -136,6 +129,118 @@ apis:
     url: https://tableau.github.io/server-client-python/docs/api-ref
   - type: GitHubRepository
     url: https://github.com/tableau/server-client-python
+- aid: tableau-desktop:tableau-desktop-authentication-api
+  name: Tableau Desktop Authentication API
+  description: Sign in and sign out operations.
+  humanURL: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api.htm
+  baseURL: https://tableau-server/api/3.22
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/tableau-desktop-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api.htm
+  - type: APIReference
+    url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref.htm
+  - type: Authentication
+    url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_concepts_auth.htm
+- aid: tableau-desktop:tableau-desktop-data-sources-api
+  name: Tableau Desktop Data Sources API
+  description: Manage and refresh published data sources.
+  humanURL: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api.htm
+  baseURL: https://tableau-server/api/3.22
+  tags:
+  - Data Sources
+  properties:
+  - type: OpenAPI
+    url: openapi/tableau-desktop-data-sources-api-openapi.yml
+  - type: Documentation
+    url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api.htm
+  - type: APIReference
+    url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref.htm
+  - type: Authentication
+    url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_concepts_auth.htm
+- aid: tableau-desktop:tableau-desktop-projects-api
+  name: Tableau Desktop Projects API
+  description: Manage projects on a site.
+  humanURL: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api.htm
+  baseURL: https://tableau-server/api/3.22
+  tags:
+  - Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/tableau-desktop-projects-api-openapi.yml
+  - type: Documentation
+    url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api.htm
+  - type: APIReference
+    url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref.htm
+  - type: Authentication
+    url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_concepts_auth.htm
+- aid: tableau-desktop:tableau-desktop-server-api
+  name: Tableau Desktop Server API
+  description: Server information.
+  humanURL: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api.htm
+  baseURL: https://tableau-server/api/3.22
+  tags:
+  - Server
+  properties:
+  - type: OpenAPI
+    url: openapi/tableau-desktop-server-api-openapi.yml
+  - type: Documentation
+    url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api.htm
+  - type: APIReference
+    url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref.htm
+  - type: Authentication
+    url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_concepts_auth.htm
+- aid: tableau-desktop:tableau-desktop-sites-api
+  name: Tableau Desktop Sites API
+  description: Manage Tableau sites.
+  humanURL: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api.htm
+  baseURL: https://tableau-server/api/3.22
+  tags:
+  - Sites
+  properties:
+  - type: OpenAPI
+    url: openapi/tableau-desktop-sites-api-openapi.yml
+  - type: Documentation
+    url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api.htm
+  - type: APIReference
+    url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref.htm
+  - type: Authentication
+    url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_concepts_auth.htm
+- aid: tableau-desktop:tableau-desktop-users-api
+  name: Tableau Desktop Users API
+  description: Manage users on a site.
+  humanURL: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api.htm
+  baseURL: https://tableau-server/api/3.22
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/tableau-desktop-users-api-openapi.yml
+  - type: Documentation
+    url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api.htm
+  - type: APIReference
+    url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref.htm
+  - type: Authentication
+    url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_concepts_auth.htm
+- aid: tableau-desktop:tableau-desktop-workbooks-api
+  name: Tableau Desktop Workbooks API
+  description: Manage and download workbooks.
+  humanURL: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api.htm
+  baseURL: https://tableau-server/api/3.22
+  tags:
+  - Workbooks
+  properties:
+  - type: OpenAPI
+    url: openapi/tableau-desktop-workbooks-api-openapi.yml
+  - type: Documentation
+    url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api.htm
+  - type: APIReference
+    url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref.htm
+  - type: Authentication
+    url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_concepts_auth.htm
 common:
 - type: AgenticAccess
   url: agentic-access/tableau-desktop-agentic-access.yml
