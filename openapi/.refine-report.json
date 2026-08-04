@@ -1,0 +1,26 @@
+{
+  "provider": "tableau-desktop",
+  "sources": [
+    "tableau-desktop-authentication-api-openapi.yml",
+    "tableau-desktop-data-sources-api-openapi.yml",
+    "tableau-desktop-projects-api-openapi.yml",
+    "tableau-desktop-server-api-openapi.yml",
+    "tableau-desktop-sites-api-openapi.yml",
+    "tableau-desktop-users-api-openapi.yml",
+    "tableau-desktop-workbooks-api-openapi.yml"
+  ],
+  "outputs": [
+    "tableau-desktop-authentication-api-openapi.yml",
+    "tableau-desktop-data-sources-api-openapi.yml",
+    "tableau-desktop-projects-api-openapi.yml",
+    "tableau-desktop-server-api-openapi.yml",
+    "tableau-desktop-sites-api-openapi.yml",
+    "tableau-desktop-users-api-openapi.yml",
+    "tableau-desktop-workbooks-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
