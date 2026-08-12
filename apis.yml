@@ -242,6 +242,9 @@ apis:
   - type: Authentication
     url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_concepts_auth.htm
 common:
+- type: License
+  name: MIT
+  url: https://github.com/tableau/extensions-api/blob/main/LICENSE
 - type: AgenticAccess
   url: agentic-access/tableau-desktop-agentic-access.yml
 - type: DomainSecurity
