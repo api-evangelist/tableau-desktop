@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Tableau REST Authentication API",
+    "version": "3.22"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Tableau-Auth",
+      "value": "{{X-Tableau-Auth}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sign In",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tableau-server}/api/3.22/auth/signin"
+          },
+          "docs": "Signs the specified user in to Tableau Server or Tableau Cloud and returns an authentication token."
+        },
+        {
+          "info": {
+            "name": "Sign Out",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tableau-server}/api/3.22/auth/signout"
+          },
+          "docs": "Signs the user out of Tableau Server or Tableau Cloud."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

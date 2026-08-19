@@ -1,0 +1,150 @@
+{
+  "item": [
+    {
+      "id": "c6e8231e-0afb-4112-9f88-68a2d441d8e7",
+      "name": "Server",
+      "description": {
+        "content": "Server information.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d829fdd3-3c54-472f-bc48-db9326492bb2",
+          "name": "Server Info",
+          "request": {
+            "name": "Server Info",
+            "description": {
+              "content": "Returns build and version information for the Tableau Server.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "serverinfo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the Tableau Server or Tableau Cloud pod.",
+                  "type": "any",
+                  "value": "{{tableau-server}}",
+                  "key": "tableau-server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e9473623-e526-464f-8da0-43927e89cfae",
+              "name": "Server information.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "serverinfo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the Tableau Server or Tableau Cloud pod.",
+                      "type": "any",
+                      "value": "{{tableau-server}}",
+                      "key": "tableau-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Tableau-Auth",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Hostname of the Tableau Server or Tableau Cloud pod.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "10ay.online.tableau.com",
+      "key": "tableau-server"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tableau-server}}/api/3.22",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Tableau-Auth"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "87c59413-1250-4a3b-9d88-413ca9778d20",
+    "name": "Tableau REST Authentication Server API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Tableau REST API enables programmatic management of Tableau Server and Tableau Cloud resources, including authentication, sites, users, projects, workbooks, and data sources. This minimal specification captures a representative subset of endpoints documented in the Tableau REST API Reference.\n\nContact Support:\n Name: Tableau Developer Program",
+      "type": "text/plain"
+    }
+  }
+}

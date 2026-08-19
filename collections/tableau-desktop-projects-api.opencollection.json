@@ -1,0 +1,114 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Tableau REST Authentication Projects API",
+    "version": "3.22"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Tableau-Auth",
+      "value": "{{X-Tableau-Auth}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/projects",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              }
+            ]
+          },
+          "docs": "Returns a list of projects on the specified site."
+        },
+        {
+          "info": {
+            "name": "Create Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/projects",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              }
+            ]
+          },
+          "docs": "Creates a project on the specified site."
+        },
+        {
+          "info": {
+            "name": "Update Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/projects/:projectId",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the project."
+              }
+            ]
+          },
+          "docs": "Updates the specified project."
+        },
+        {
+          "info": {
+            "name": "Delete Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/projects/:projectId",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the project."
+              }
+            ]
+          },
+          "docs": "Deletes the specified project."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

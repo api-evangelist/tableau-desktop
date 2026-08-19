@@ -1,0 +1,806 @@
+{
+  "item": [
+    {
+      "id": "6d75f6e5-640d-4650-95c1-a08c1c069315",
+      "name": "Workbooks",
+      "description": {
+        "content": "Manage and download workbooks.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2e084c84-1839-44ca-a86c-803b14327e26",
+          "name": "Query Workbooks for Site",
+          "request": {
+            "name": "Query Workbooks for Site",
+            "description": {
+              "content": "Returns the workbooks on a site.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sites",
+                ":siteId",
+                "workbooks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "siteId",
+                  "description": "(Required) The LUID of the site."
+                },
+                {
+                  "description": "Hostname of the Tableau Server or Tableau Cloud pod.",
+                  "type": "any",
+                  "value": "{{tableau-server}}",
+                  "key": "tableau-server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c7dbe99f-3262-4b8e-a963-983a912a38f1",
+              "name": "A list of workbooks.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    ":siteId",
+                    "workbooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "siteId",
+                      "description": "(Required) The LUID of the site."
+                    },
+                    {
+                      "description": "Hostname of the Tableau Server or Tableau Cloud pod.",
+                      "type": "any",
+                      "value": "{{tableau-server}}",
+                      "key": "tableau-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Tableau-Auth",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "678c67cf-61e7-4273-b9a8-33068fe15f39",
+          "name": "Publish Workbook",
+          "request": {
+            "name": "Publish Workbook",
+            "description": {
+              "content": "Publishes a workbook to the specified site.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sites",
+                ":siteId",
+                "workbooks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "siteId",
+                  "description": "(Required) The LUID of the site."
+                },
+                {
+                  "description": "Hostname of the Tableau Server or Tableau Cloud pod.",
+                  "type": "any",
+                  "value": "{{tableau-server}}",
+                  "key": "tableau-server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/mixed"
+              },
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": 4865\n}"
+            }
+          },
+          "response": [
+            {
+              "id": "d9964439-8186-4fa4-9f81-30cc73419cda",
+              "name": "Workbook published.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    ":siteId",
+                    "workbooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "siteId",
+                      "description": "(Required) The LUID of the site."
+                    },
+                    {
+                      "description": "Hostname of the Tableau Server or Tableau Cloud pod.",
+                      "type": "any",
+                      "value": "{{tableau-server}}",
+                      "key": "tableau-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Tableau-Auth",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": false,\n  \"key_1\": 8807,\n  \"key_2\": \"string\"\n}"
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "19d1a439-14ed-4daa-9c28-1f3aef68e119",
+          "name": "Query Workbook",
+          "request": {
+            "name": "Query Workbook",
+            "description": {
+              "content": "Returns information about the specified workbook.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sites",
+                ":siteId",
+                "workbooks",
+                ":workbookId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "siteId",
+                  "description": "(Required) The LUID of the site."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workbookId",
+                  "description": "(Required) The LUID of the workbook."
+                },
+                {
+                  "description": "Hostname of the Tableau Server or Tableau Cloud pod.",
+                  "type": "any",
+                  "value": "{{tableau-server}}",
+                  "key": "tableau-server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b43d4540-0f49-44aa-910b-93de1e6807fe",
+              "name": "Workbook details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    ":siteId",
+                    "workbooks",
+                    ":workbookId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "siteId",
+                      "description": "(Required) The LUID of the site."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workbookId",
+                      "description": "(Required) The LUID of the workbook."
+                    },
+                    {
+                      "description": "Hostname of the Tableau Server or Tableau Cloud pod.",
+                      "type": "any",
+                      "value": "{{tableau-server}}",
+                      "key": "tableau-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Tableau-Auth",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5cefbd9d-d34c-47dd-b85b-d872a2c422de",
+          "name": "Update Workbook",
+          "request": {
+            "name": "Update Workbook",
+            "description": {
+              "content": "Updates the specified workbook.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sites",
+                ":siteId",
+                "workbooks",
+                ":workbookId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "siteId",
+                  "description": "(Required) The LUID of the site."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workbookId",
+                  "description": "(Required) The LUID of the workbook."
+                },
+                {
+                  "description": "Hostname of the Tableau Server or Tableau Cloud pod.",
+                  "type": "any",
+                  "value": "{{tableau-server}}",
+                  "key": "tableau-server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/xml"
+              },
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n</element>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0d9ba073-77cb-4cab-a3a1-d27b346d3ffc",
+              "name": "Workbook updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    ":siteId",
+                    "workbooks",
+                    ":workbookId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "siteId",
+                      "description": "(Required) The LUID of the site."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workbookId",
+                      "description": "(Required) The LUID of the workbook."
+                    },
+                    {
+                      "description": "Hostname of the Tableau Server or Tableau Cloud pod.",
+                      "type": "any",
+                      "value": "{{tableau-server}}",
+                      "key": "tableau-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Tableau-Auth",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n</element>",
+                  "options": {
+                    "raw": {
+                      "language": "xml"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2bc4f9cc-a70e-43c8-9d37-26ab6df77c6e",
+          "name": "Delete Workbook",
+          "request": {
+            "name": "Delete Workbook",
+            "description": {
+              "content": "Deletes the specified workbook.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sites",
+                ":siteId",
+                "workbooks",
+                ":workbookId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "siteId",
+                  "description": "(Required) The LUID of the site."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workbookId",
+                  "description": "(Required) The LUID of the workbook."
+                },
+                {
+                  "description": "Hostname of the Tableau Server or Tableau Cloud pod.",
+                  "type": "any",
+                  "value": "{{tableau-server}}",
+                  "key": "tableau-server"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4156ffa7-5162-4622-9f30-e767dc788b92",
+              "name": "Workbook deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    ":siteId",
+                    "workbooks",
+                    ":workbookId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "siteId",
+                      "description": "(Required) The LUID of the site."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workbookId",
+                      "description": "(Required) The LUID of the workbook."
+                    },
+                    {
+                      "description": "Hostname of the Tableau Server or Tableau Cloud pod.",
+                      "type": "any",
+                      "value": "{{tableau-server}}",
+                      "key": "tableau-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Tableau-Auth",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1ca51832-1b2b-40c4-86c4-fe9a2c5ac0f8",
+          "name": "Download Workbook",
+          "request": {
+            "name": "Download Workbook",
+            "description": {
+              "content": "Downloads the specified workbook as a .twb or .twbx file.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sites",
+                ":siteId",
+                "workbooks",
+                ":workbookId",
+                "content"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "siteId",
+                  "description": "(Required) The LUID of the site."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workbookId",
+                  "description": "(Required) The LUID of the workbook."
+                },
+                {
+                  "description": "Hostname of the Tableau Server or Tableau Cloud pod.",
+                  "type": "any",
+                  "value": "{{tableau-server}}",
+                  "key": "tableau-server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5c5a99e2-1425-4d1d-acff-21c4cb2bf22c",
+              "name": "Workbook file.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    ":siteId",
+                    "workbooks",
+                    ":workbookId",
+                    "content"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "siteId",
+                      "description": "(Required) The LUID of the site."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workbookId",
+                      "description": "(Required) The LUID of the workbook."
+                    },
+                    {
+                      "description": "Hostname of the Tableau Server or Tableau Cloud pod.",
+                      "type": "any",
+                      "value": "{{tableau-server}}",
+                      "key": "tableau-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Tableau-Auth",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/octet-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/octet-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Hostname of the Tableau Server or Tableau Cloud pod.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "10ay.online.tableau.com",
+      "key": "tableau-server"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tableau-server}}/api/3.22",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Tableau-Auth"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "23aa7d56-dc14-49ee-ba2f-0540f1139994",
+    "name": "Tableau REST Authentication Workbooks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Tableau REST API enables programmatic management of Tableau Server and Tableau Cloud resources, including authentication, sites, users, projects, workbooks, and data sources. This minimal specification captures a representative subset of endpoints documented in the Tableau REST API Reference.\n\nContact Support:\n Name: Tableau Developer Program",
+      "type": "text/plain"
+    }
+  }
+}

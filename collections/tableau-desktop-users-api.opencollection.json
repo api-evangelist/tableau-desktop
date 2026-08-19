@@ -1,0 +1,114 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Tableau REST Authentication Users API",
+    "version": "3.22"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Tableau-Auth",
+      "value": "{{X-Tableau-Auth}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Users on Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/users",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              }
+            ]
+          },
+          "docs": "Returns the users associated with the specified site."
+        },
+        {
+          "info": {
+            "name": "Add User to Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/users",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              }
+            ]
+          },
+          "docs": "Adds a user to the specified site."
+        },
+        {
+          "info": {
+            "name": "Update User",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/users/:userId",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the user."
+              }
+            ]
+          },
+          "docs": "Updates the specified user."
+        },
+        {
+          "info": {
+            "name": "Remove User from Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/users/:userId",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the user."
+              }
+            ]
+          },
+          "docs": "Removes the specified user from the site."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

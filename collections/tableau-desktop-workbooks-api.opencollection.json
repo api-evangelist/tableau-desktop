@@ -1,0 +1,164 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Tableau REST Authentication Workbooks API",
+    "version": "3.22"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Tableau-Auth",
+      "value": "{{X-Tableau-Auth}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Workbooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Workbooks for Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/workbooks",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              }
+            ]
+          },
+          "docs": "Returns the workbooks on a site."
+        },
+        {
+          "info": {
+            "name": "Publish Workbook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/workbooks",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              }
+            ]
+          },
+          "docs": "Publishes a workbook to the specified site."
+        },
+        {
+          "info": {
+            "name": "Query Workbook",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/workbooks/:workbookId",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              },
+              {
+                "name": "workbookId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the workbook."
+              }
+            ]
+          },
+          "docs": "Returns information about the specified workbook."
+        },
+        {
+          "info": {
+            "name": "Update Workbook",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/workbooks/:workbookId",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              },
+              {
+                "name": "workbookId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the workbook."
+              }
+            ]
+          },
+          "docs": "Updates the specified workbook."
+        },
+        {
+          "info": {
+            "name": "Delete Workbook",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/workbooks/:workbookId",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              },
+              {
+                "name": "workbookId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the workbook."
+              }
+            ]
+          },
+          "docs": "Deletes the specified workbook."
+        },
+        {
+          "info": {
+            "name": "Download Workbook",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/workbooks/:workbookId/content",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              },
+              {
+                "name": "workbookId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the workbook."
+              }
+            ]
+          },
+          "docs": "Downloads the specified workbook as a .twb or .twbx file."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,562 @@
+{
+  "item": [
+    {
+      "id": "05d287bf-202d-4fde-93a1-9b344ae7dbb1",
+      "name": "Users",
+      "description": {
+        "content": "Manage users on a site.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "023ecc7a-96cd-4587-8c1f-e388a78aa65f",
+          "name": "Get Users on Site",
+          "request": {
+            "name": "Get Users on Site",
+            "description": {
+              "content": "Returns the users associated with the specified site.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sites",
+                ":siteId",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "siteId",
+                  "description": "(Required) The LUID of the site."
+                },
+                {
+                  "description": "Hostname of the Tableau Server or Tableau Cloud pod.",
+                  "type": "any",
+                  "value": "{{tableau-server}}",
+                  "key": "tableau-server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e2309b72-e883-44f9-a486-b218226bb638",
+              "name": "A list of users.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    ":siteId",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "siteId",
+                      "description": "(Required) The LUID of the site."
+                    },
+                    {
+                      "description": "Hostname of the Tableau Server or Tableau Cloud pod.",
+                      "type": "any",
+                      "value": "{{tableau-server}}",
+                      "key": "tableau-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Tableau-Auth",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "51978349-fd2b-4cd2-84de-7a33ea4a86a0",
+          "name": "Add User to Site",
+          "request": {
+            "name": "Add User to Site",
+            "description": {
+              "content": "Adds a user to the specified site.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sites",
+                ":siteId",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "siteId",
+                  "description": "(Required) The LUID of the site."
+                },
+                {
+                  "description": "Hostname of the Tableau Server or Tableau Cloud pod.",
+                  "type": "any",
+                  "value": "{{tableau-server}}",
+                  "key": "tableau-server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/xml"
+              },
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n</element>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2bd96f2d-798e-4716-8324-f34710493a54",
+              "name": "User added.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    ":siteId",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "siteId",
+                      "description": "(Required) The LUID of the site."
+                    },
+                    {
+                      "description": "Hostname of the Tableau Server or Tableau Cloud pod.",
+                      "type": "any",
+                      "value": "{{tableau-server}}",
+                      "key": "tableau-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Tableau-Auth",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n</element>",
+                  "options": {
+                    "raw": {
+                      "language": "xml"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "db31ec84-ce9a-4260-a053-cbb3f0fd751e",
+          "name": "Update User",
+          "request": {
+            "name": "Update User",
+            "description": {
+              "content": "Updates the specified user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sites",
+                ":siteId",
+                "users",
+                ":userId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "siteId",
+                  "description": "(Required) The LUID of the site."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) The LUID of the user."
+                },
+                {
+                  "description": "Hostname of the Tableau Server or Tableau Cloud pod.",
+                  "type": "any",
+                  "value": "{{tableau-server}}",
+                  "key": "tableau-server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/xml"
+              },
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n</element>",
+              "options": {
+                "raw": {
+                  "language": "xml"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "842deeae-043c-492b-a2b2-5fc6db5b59c5",
+              "name": "User updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    ":siteId",
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "siteId",
+                      "description": "(Required) The LUID of the site."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) The LUID of the user."
+                    },
+                    {
+                      "description": "Hostname of the Tableau Server or Tableau Cloud pod.",
+                      "type": "any",
+                      "value": "{{tableau-server}}",
+                      "key": "tableau-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Tableau-Auth",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n</element>",
+                  "options": {
+                    "raw": {
+                      "language": "xml"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3981727e-1066-414e-bdb7-52a3973b6a56",
+          "name": "Remove User from Site",
+          "request": {
+            "name": "Remove User from Site",
+            "description": {
+              "content": "Removes the specified user from the site.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sites",
+                ":siteId",
+                "users",
+                ":userId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "siteId",
+                  "description": "(Required) The LUID of the site."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) The LUID of the user."
+                },
+                {
+                  "description": "Hostname of the Tableau Server or Tableau Cloud pod.",
+                  "type": "any",
+                  "value": "{{tableau-server}}",
+                  "key": "tableau-server"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a83d9881-a294-46da-861a-bdd551c692ef",
+              "name": "User removed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    ":siteId",
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "siteId",
+                      "description": "(Required) The LUID of the site."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) The LUID of the user."
+                    },
+                    {
+                      "description": "Hostname of the Tableau Server or Tableau Cloud pod.",
+                      "type": "any",
+                      "value": "{{tableau-server}}",
+                      "key": "tableau-server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Tableau-Auth",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Hostname of the Tableau Server or Tableau Cloud pod.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "10ay.online.tableau.com",
+      "key": "tableau-server"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tableau-server}}/api/3.22",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Tableau-Auth"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6c2db74a-a187-4324-a48a-74bb8fad5c3a",
+    "name": "Tableau REST Authentication Users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Tableau REST API enables programmatic management of Tableau Server and Tableau Cloud resources, including authentication, sites, users, projects, workbooks, and data sources. This minimal specification captures a representative subset of endpoints documented in the Tableau REST API Reference.\n\nContact Support:\n Name: Tableau Developer Program",
+      "type": "text/plain"
+    }
+  }
+}

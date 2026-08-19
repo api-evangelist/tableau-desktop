@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Tableau REST Authentication Server API",
+    "version": "3.22"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Tableau-Auth",
+      "value": "{{X-Tableau-Auth}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Server",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Server Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tableau-server}/api/3.22/serverinfo"
+          },
+          "docs": "Returns build and version information for the Tableau Server."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,105 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Tableau REST Authentication Sites API",
+    "version": "3.22"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Tableau-Auth",
+      "value": "{{X-Tableau-Auth}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sites",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Sites",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tableau-server}/api/3.22/sites"
+          },
+          "docs": "Returns a list of sites on the server."
+        },
+        {
+          "info": {
+            "name": "Create Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tableau-server}/api/3.22/sites"
+          },
+          "docs": "Creates a site."
+        },
+        {
+          "info": {
+            "name": "Query Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              }
+            ]
+          },
+          "docs": "Returns information about the specified site."
+        },
+        {
+          "info": {
+            "name": "Update Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              }
+            ]
+          },
+          "docs": "Updates the specified site."
+        },
+        {
+          "info": {
+            "name": "Delete Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              }
+            ]
+          },
+          "docs": "Deletes the specified site."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

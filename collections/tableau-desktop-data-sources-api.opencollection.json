@@ -1,0 +1,95 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Tableau REST Authentication Data Sources API",
+    "version": "3.22"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Tableau-Auth",
+      "value": "{{X-Tableau-Auth}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data Sources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Data Sources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/datasources",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              }
+            ]
+          },
+          "docs": "Returns a list of published data sources on the specified site."
+        },
+        {
+          "info": {
+            "name": "Query Data Source",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/datasources/:datasourceId",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              },
+              {
+                "name": "datasourceId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the data source."
+              }
+            ]
+          },
+          "docs": "Returns information about the specified data source."
+        },
+        {
+          "info": {
+            "name": "Refresh Data Source",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tableau-server}/api/3.22/sites/:siteId/datasources/:datasourceId/refresh",
+            "params": [
+              {
+                "name": "siteId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the site."
+              },
+              {
+                "name": "datasourceId",
+                "value": "",
+                "type": "path",
+                "description": "The LUID of the data source."
+              }
+            ]
+          },
+          "docs": "Triggers an extract refresh for the specified data source."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
