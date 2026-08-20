@@ -167,6 +167,8 @@ apis:
   humanURL: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api.htm
   baseURL: https://tableau-server/api/3.22
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
@@ -215,6 +217,8 @@ apis:
   humanURL: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api.htm
   baseURL: https://tableau-server/api/3.22
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
