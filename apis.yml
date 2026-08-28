@@ -5,6 +5,20 @@ description: >-
   Salesforce. Tableau provides REST APIs, embedding APIs, extension APIs, and SDK tools for building custom
   visualizations, automating server operations, and extending analytics capabilities.
 type: Index
+deliveryModel:
+  model: open-core
+  license: MIT
+  open_source: true
+  commercial: true
+  callable_host: false
+  label: Open core · an OSS project plus a commercial hosted product
+  confidence: high
+  source:
+  - license
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -246,6 +260,13 @@ apis:
   - type: Authentication
     url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_concepts_auth.htm
 common:
+- type: CapabilityMap
+  url: capabilities/tableau-desktop-capability-edges.yml
+  name: Tableau Desktop Business Capability Map
+- type: IssueTracker
+  url: https://github.com/tableau/extensions-api/issues
+- type: Releases
+  url: https://github.com/tableau/extensions-api/releases
 - type: License
   name: MIT
   url: https://github.com/tableau/extensions-api/blob/main/LICENSE
