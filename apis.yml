@@ -50,6 +50,11 @@ apis:
   humanURL: https://tableau.github.io/extensions-api/
   baseURL: https://tableau.github.io/extensions-api/
   tags:
+  - Dashboards
+  - Extensions
+  - JavaScript
+  - Web Components
+  tags_raw:
   - Dashboard
   - Extensions
   - JavaScript
@@ -91,6 +96,11 @@ apis:
   humanURL: https://help.tableau.com/current/api/embedding_api/en-us/index.html
   baseURL: https://help.tableau.com/current/api/embedding_api/
   tags:
+  - Embeddings
+  - Integration
+  - JavaScript
+  - Web Components
+  tags_raw:
   - Embedding
   - Integration
   - JavaScript
@@ -127,6 +137,11 @@ apis:
   humanURL: https://tableau.github.io/server-client-python/
   baseURL: https://tableau.github.io/server-client-python/
   tags:
+  - Automation
+  - Python
+  - REST API
+  - Servers
+  tags_raw:
   - Automation
   - Python
   - REST API
@@ -194,6 +209,8 @@ apis:
   humanURL: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api.htm
   baseURL: https://tableau-server/api/3.22
   tags:
+  - Servers
+  tags_raw:
   - Server
   properties:
   - type: OpenAPI
