@@ -1,13 +1,7 @@
 {
   "provider": "tableau-desktop",
   "sources": [
-    "tableau-desktop-authentication-api-openapi.yml",
-    "tableau-desktop-data-sources-api-openapi.yml",
-    "tableau-desktop-projects-api-openapi.yml",
-    "tableau-desktop-server-api-openapi.yml",
-    "tableau-desktop-sites-api-openapi.yml",
-    "tableau-desktop-users-api-openapi.yml",
-    "tableau-desktop-workbooks-api-openapi.yml"
+    "_ae-authored/tableau-desktop-openapi.yml"
   ],
   "outputs": [
     "tableau-desktop-authentication-api-openapi.yml",
@@ -21,6 +15,18 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "tableau-desktop-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "tableau-desktop-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tableau-desktop-data-sources-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tableau-desktop-projects-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tableau-desktop-server-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tableau-desktop-sites-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tableau-desktop-users-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tableau-desktop-workbooks-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
