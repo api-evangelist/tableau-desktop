@@ -51,13 +51,13 @@ paths:
           description: Successfully signed out.
 components:
   schemas:
-    Request:
-      type: object
-      description: Generic Tableau REST API request envelope (tsRequest).
-      additionalProperties: true
     Response:
       type: object
       description: Generic Tableau REST API response envelope (tsResponse).
+      additionalProperties: true
+    Request:
+      type: object
+      description: Generic Tableau REST API request envelope (tsRequest).
       additionalProperties: true
   securitySchemes:
     tableauAuth:

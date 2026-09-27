@@ -88,13 +88,13 @@ paths:
           description: Project deleted.
 components:
   schemas:
-    Request:
-      type: object
-      description: Generic Tableau REST API request envelope (tsRequest).
-      additionalProperties: true
     Response:
       type: object
       description: Generic Tableau REST API response envelope (tsResponse).
+      additionalProperties: true
+    Request:
+      type: object
+      description: Generic Tableau REST API request envelope (tsRequest).
       additionalProperties: true
   parameters:
     ProjectId:
