@@ -87,6 +87,15 @@ paths:
         '204':
           description: Project deleted.
 components:
+  schemas:
+    Response:
+      type: object
+      description: Generic Tableau REST API response envelope (tsResponse).
+      additionalProperties: true
+    Request:
+      type: object
+      description: Generic Tableau REST API request envelope (tsRequest).
+      additionalProperties: true
   parameters:
     ProjectId:
       name: projectId
@@ -102,15 +111,6 @@ components:
       description: The LUID of the site.
       schema:
         type: string
-  schemas:
-    Response:
-      type: object
-      description: Generic Tableau REST API response envelope (tsResponse).
-      additionalProperties: true
-    Request:
-      type: object
-      description: Generic Tableau REST API request envelope (tsRequest).
-      additionalProperties: true
   securitySchemes:
     tableauAuth:
       type: apiKey

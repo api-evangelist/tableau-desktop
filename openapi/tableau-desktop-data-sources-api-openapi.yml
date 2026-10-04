@@ -70,6 +70,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/Response'
 components:
+  schemas:
+    Response:
+      type: object
+      description: Generic Tableau REST API response envelope (tsResponse).
+      additionalProperties: true
   parameters:
     DatasourceId:
       name: datasourceId
@@ -85,11 +90,6 @@ components:
       description: The LUID of the site.
       schema:
         type: string
-  schemas:
-    Response:
-      type: object
-      description: Generic Tableau REST API response envelope (tsResponse).
-      additionalProperties: true
   securitySchemes:
     tableauAuth:
       type: apiKey
