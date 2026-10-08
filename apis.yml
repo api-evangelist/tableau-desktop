@@ -272,6 +272,12 @@ apis:
   - type: Authentication
     url: https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_concepts_auth.htm
 common:
+- type: Plans
+  url: plans/tableau-desktop-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/tableau-desktop-rate-limits.yml
+- type: FinOps
+  url: finops/tableau-desktop-finops.yml
 - type: Website
   url: https://tableau.com
 - type: CapabilityMap
