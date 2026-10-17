@@ -118,6 +118,15 @@ paths:
                 type: string
                 format: binary
 components:
+  schemas:
+    Request:
+      type: object
+      description: Generic Tableau REST API request envelope (tsRequest).
+      additionalProperties: true
+    Response:
+      type: object
+      description: Generic Tableau REST API response envelope (tsResponse).
+      additionalProperties: true
   parameters:
     WorkbookId:
       name: workbookId
@@ -133,15 +142,6 @@ components:
       description: The LUID of the site.
       schema:
         type: string
-  schemas:
-    Request:
-      type: object
-      description: Generic Tableau REST API request envelope (tsRequest).
-      additionalProperties: true
-    Response:
-      type: object
-      description: Generic Tableau REST API response envelope (tsResponse).
-      additionalProperties: true
   securitySchemes:
     tableauAuth:
       type: apiKey
