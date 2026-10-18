@@ -121,6 +121,11 @@ apis:
   tags:
   - Data Governance
   - GraphQL
+  - Data Lineage
+  - Metadata
+  tags_raw:
+  - Data Governance
+  - GraphQL
   - Lineage
   - Metadata
   properties:
